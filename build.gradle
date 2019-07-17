@@ -48,6 +48,7 @@ bintray {
     pkg {
         repo = 'hello-garwan'
         name = 'hello-garwan-app'
+        userOrg = 'garwan'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/garwan/hello-garwan-maven'
     }
