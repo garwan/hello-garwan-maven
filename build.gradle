@@ -1,3 +1,10 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
 plugins {
     id 'java'
     id "com.jfrog.bintray" version "1.8.4"
@@ -7,10 +14,15 @@ plugins {
 group 'io.garwan'
 version '0.1.0'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
+targetCompatibility = 11
+
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
@@ -54,7 +66,4 @@ bintray {
         vcsUrl = 'https://github.com/garwan/hello-garwan-maven'
     }
 
-}
-
-dependencies {
 }
