@@ -13,6 +13,12 @@ jobs:
       - restore_cache:
           key: gradle-{{ checksum "build.gradle" }}
       - run:
+          name: Export app env vars
+          command: |
+            set -e ;
+            echo "export BUILD_NO=${CIRCLE_BUILD_NUM}" >> $BASH_ENV
+            echo "export COMMIT_SHA1=${CIRCLE_SHA1}" >> $BASH_ENV
+      - run:
           name: Build app
           command: ./gradlew build
       - run:

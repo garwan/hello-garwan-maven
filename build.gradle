@@ -36,6 +36,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+fun determineVersion() {
+    return project.version + '-' + System.getenv('BUILD_NO')
+}
 
 publishing {
     publications {
@@ -47,6 +50,8 @@ publishing {
             artifact javadocJar {
                 classifier 'javadoc'
             }
+
+            version = determineVersion()
         }
     }
 }
