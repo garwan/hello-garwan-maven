@@ -15,3 +15,9 @@ jobs:
       - run:
           name: Build app
           command: ./gradlew build
+      - run:
+          name: Upload to bintray
+          command: ./gradlew bintrayUpload
+      - run:
+          name: Publish to bintray
+          command: ./gradlew bintrayPublish
