@@ -43,7 +43,7 @@ bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
     publications = ['mavenPublication']
-    dryRun = true
+//    dryRun = true
 //    override = false
     pkg {
         repo = 'hello-garwan'
