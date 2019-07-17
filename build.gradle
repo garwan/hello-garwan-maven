@@ -7,7 +7,6 @@ buildscript {
 
 plugins {
     id 'java'
-    id "com.jfrog.bintray" version "1.8.4"
     id "maven-publish"
 }
 
@@ -42,7 +41,7 @@ def determineVersion() {
 
 publishing {
     publications {
-        mavenPublication(MavenPublication) {
+        AppPublication(MavenPublication) {
             from components.java
             artifact sourcesJar {
                 classifier 'sources'
@@ -54,21 +53,16 @@ publishing {
             version = determineVersion()
         }
     }
-}
 
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['mavenPublication']
-//    dryRun = true
-//    override = false
-    publish = true
-    pkg {
-        repo = 'hello-garwan'
-        name = 'hello-garwan-app'
-        userOrg = 'garwan'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/garwan/hello-garwan-maven'
+    repositories {
+        maven {
+            name = 'garwan-hello-garwan'
+            url = 'https://api.bintray.com/maven/garwan/hello-garwan/hello-garwan-app/;publish=1'
+            credentials {
+                username = System.getenv('BINTRAY_USER')
+                password = System.getenv('BINTRAY_KEY')
+            }
+        }
     }
 
 }
