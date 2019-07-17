@@ -45,6 +45,7 @@ bintray {
     publications = ['mavenPublication']
 //    dryRun = true
 //    override = false
+    publish = true
     pkg {
         repo = 'hello-garwan'
         name = 'hello-garwan-app'

@@ -18,6 +18,3 @@ jobs:
       - run:
           name: Upload to bintray
           command: ./gradlew bintrayUpload
-      - run:
-          name: Publish to bintray
-          command: ./gradlew bintrayPublish
